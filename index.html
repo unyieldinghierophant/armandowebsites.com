@@ -1232,7 +1232,7 @@ footer img { height: 28px; width: auto; opacity: .7; }
 
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="#"><img src="logos/logo_aw.png" alt="AW" style="height:40px; width:auto; display:block;" /></a>
+  <a href="#"><img src="logos/transparentbackgroundlogo.svg" alt="AW" style="height:60px; width:auto; display:block;" /></a>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -1248,7 +1248,7 @@ footer img { height: 28px; width: auto; opacity: .7; }
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="menu-close" id="menuClose"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-  <a href="#" style="position: absolute; top: 30px; left: var(--pad);"><img src="logos/logo_aw.png" alt="AW" style="height:40px; width:auto; display:block;" /></a>
+  <a href="#" style="position: absolute; top: 30px; left: var(--pad);"><img src="logos/transparentbackgroundlogo.svg" alt="AW" style="height:60px; width:auto; display:block;" /></a>
   
   <div class="mobile-menu-inner">
     <div class="mobile-menu-links">
@@ -2089,5 +2089,23 @@ function applyTranslations() {
 applyTranslations();
 </script>
 
+
+<!-- ── FLASHING FAVICON ── -->
+<script>
+  (function() {
+    const favicon1 = 'logos/logo_aw.png';
+    const favicon2 = 'logos/logo.png';
+    let isFlipped = false;
+    const links = document.querySelectorAll("link[rel*='icon']");
+    
+    setInterval(() => {
+      const nextIcon = isFlipped ? favicon1 : favicon2;
+      links.forEach(link => {
+        link.href = nextIcon;
+      });
+      isFlipped = !isFlipped;
+    }, 1000); // Pulse every 1 second
+  })();
+</script>
 </body>
 </html>
